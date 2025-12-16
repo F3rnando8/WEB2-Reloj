@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Colores de la paleta Gamer/Cyberpunk */
+:root {
+    --bg-dark: #1e1e2c; /* Fondo muy oscuro */
+    --card-dark: #27283d; /* Fondo de las tarjetas */
+    --text-light: #e0e0f0; /* Texto principal claro */
+    --neon-blue: #4dffff; /* Azul neón vibrante */
+    --neon-purple: #9c4dff; /* Púrpura neón */
+    --shadow-color: rgba(77, 255, 255, 0.5); /* Color de la sombra de neón */
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', monospace; /* Fuente tecnológica */
+    background: linear-gradient(135deg, #12121a 0%, #1e1e2c 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+}
+
+.clock-card {
+    /* Fondo oscuro semitransparente con borde de neón */
+    background: var(--card-dark);
+    padding: 3.5rem;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 20px var(--neon-blue), /* Sombra exterior azul */
+        0 0 40px var(--neon-purple); /* Sombra exterior púrpura */
+    border: 3px solid var(--neon-blue); /* Borde de efecto neón */
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: all 0.5s ease;
+}
+
+.clock-card:hover {
+    box-shadow: 
+        0 0 30px var(--neon-blue),
+        0 0 60px var(--neon-purple);
+    transform: scale(1.01);
+}
+
+.greeting {
+    font-size: 2rem;
+    color: var(--neon-blue);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 10px var(--neon-blue); /* Sombra de texto neón */
+    animation: fadeIn 1.5s ease;
+}
+
+.time-display {
+    display: flex;
+    align-items: flex-end; /* Alineación para el período */
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.time {
+    font-size: 8rem;
+    font-weight: bold;
+    color: var(--text-light);
+    letter-spacing: 5px;
+    text-shadow: 
+        0 0 7px var(--neon-purple), 
+        0 0 15px var(--neon-blue); /* Doble sombra de neón para un look 3D */
+    transition: opacity 0.3s;
+}
+
+.period {
+    font-size: 2.5rem;
+    color: var(--neon-purple);
+    font-weight: 700;
+    margin-bottom: 15px; /* Ajuste para alinear con el tiempo */
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.date {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.controls {
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(90deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+    color: var(--card-dark);
+    border: none;
+    border-radius: 5px; /* Bordes más rectos, estilo tech */
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px var(--neon-blue); /* Sombra de botón neón */
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--neon-purple);
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.timezone-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+.label {
+    font-weight: 500;
+}
+
+#timezone {
+    color: var(--neon-purple);
+    font-weight: 600;
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--card-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(77, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(77, 255, 255, 0.2); /* Sombra sutil de neón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px var(--neon-blue);
+    background: #2e3047; /* Ligeramente más claro al hacer hover */
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--neon-blue);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* El efecto pulse no queda bien con el neón, lo reemplazo con una pulsación de brillo */
+@keyframes neon-pulse {
+    0%, 100% {
+        text-shadow: 0 0 7px var(--neon-purple), 0 0 15px var(--neon-blue);
+    }
+    50% {
+        text-shadow: 0 0 10px var(--neon-purple), 0 0 25px var(--neon-blue), 0 0 30px var(--neon-blue);
+    }
+}
+
+.time {
+    animation: neon-pulse 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .clock-card {
+        padding: 2.5rem;
+    }
+    
+    .greeting {
+        font-size: 1.8rem;
+    }
+    
+    .time {
+        font-size: 5rem;
+    }
+    
+    .period {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .date {
+        font-size: 1.2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+}
